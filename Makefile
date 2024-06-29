@@ -7,7 +7,7 @@ public/movies.tsv:
 	    echo "sheets API ok"; \
 	else \
 	    echo "got error from sheets API; using last good deployment"; \
-		@curl --fail -L "https://camshaft.github.io/movie-collection/movies.tsv" > $@.tmp; \
+		curl --fail -L "https://camshaft.github.io/movie-collection/movies.tsv" > $@.tmp; \
 	fi
 	mv $@.tmp $@;
 
