@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import data from './data';
 import SearchBar from './SearchBar'
 import Media from './Media'

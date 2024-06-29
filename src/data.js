@@ -1,6 +1,4 @@
-import { cache } from 'react';
-
-export default fetch(process.env.REACT_APP_API_URL).then((resp) => resp.text()).then(processResponse)
+export default fetch(`${process.env.PUBLIC_URL}/movies.tsv`).then((resp) => resp.text()).then(processResponse)
 
 async function processResponse(resp) {
     const rows = resp.split('\r\n');
