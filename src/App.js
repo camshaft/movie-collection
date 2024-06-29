@@ -1,13 +1,12 @@
-import data from './data';
+import useData from './data';
 import SearchBar from './SearchBar'
 import Media from './Media'
 import './App.css';
-import useAsync from './useAsync';
 import { useState } from 'react'
 import Box from '@mui/material/Box'
 
 function App() {
-  const results = useAsync(() => data);
+  const results = useData();
   const [search, setSearch] = useState("");
 
   return (
