@@ -3,12 +3,12 @@ name: Deploy site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['main']
+    branches: ["main"]
 
   schedule:
     # run every morning at 10am Pacific Time
     # Running this every day makes sure the list is up to date
-    - cron: '0 17 * * *'
+    - cron: "0 17 * * *"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
