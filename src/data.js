@@ -43,7 +43,7 @@ function parseRow(row, columns) {
     const out = {}
 
     for (let column = 0; column < columns.length; column++) {
-        let name = columns[column].toLowerCase();
+        let name = columns[column].toLowerCase().replace('-', '_');
         let value = row[column];
         if (value === "TRUE") value = true;
         if (value === "FALSE") value = false;

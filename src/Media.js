@@ -48,8 +48,16 @@ function MediaSkeleton() {
 }
 
 function MediaCard(props) {
-    let { title, image, released, imdb } = props;
+    let { title, image, released, imdb, dvd, blu_ray } = props;
+
     if (released instanceof Date) released = released.getFullYear();
+
+    let has = []
+    if (dvd) has.push('DVD')
+    if (blu_ray) has.push('Blu-ray')
+
+    has = has.length ? ` - ${has.join(', ')}` : ''
+
     return (
         <Card sx={{ minWidth: img_w + 50 }} >
             <CardMedia
@@ -62,7 +70,7 @@ function MediaCard(props) {
                     {title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {`${released}`}
+                    {`${released}${has}`}
                 </Typography>
             </CardContent>
             <CardActions>
