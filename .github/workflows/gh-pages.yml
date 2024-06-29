@@ -32,6 +32,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build site
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         run: make
       - name: Setup Pages
         id: pages

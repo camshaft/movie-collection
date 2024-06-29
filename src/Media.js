@@ -56,7 +56,7 @@ function MediaSkeleton() {
 }
 
 function MediaCard(props) {
-  let { title, image, released, imdb, dvd, blu_ray } = props;
+  let { title, image, released, imdb_url, dvd, blu_ray } = props;
 
   if (released instanceof Date) released = released.getFullYear();
 
@@ -82,7 +82,7 @@ function MediaCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" color="primary" href={imdb}>
+        <Button size="small" color="primary" href={imdb_url}>
           IMDB
         </Button>
       </CardActions>
