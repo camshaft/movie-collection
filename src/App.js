@@ -1,23 +1,22 @@
 import logo from './logo.svg';
+import data from './data';
+import SearchBar from './SearchBar'
+import Media from './Media'
 import './App.css';
+import useAsync from './useAsync';
+import { useState } from 'react'
+import Box from '@mui/material/Box'
 
 function App() {
+  const results = useAsync(() => data);
+  const [search, setSearch] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBar onChange={(e) => setSearch(e.target.value)} value={search} />
+      <Box sx={{ padding: 5 }}>
+        <Media data={results.data} search={search.toLowerCase()} error={results.error} />
+      </Box>
     </div>
   );
 }
