@@ -21,6 +21,7 @@ const out = [];
 for (var i = 1; i < lines.length; i++) {
   let row = lines[i].split("\t");
   row = parseRow(row, header);
+  if (!row) continue;
   try {
     row = await enhance(row);
     if (row) out.push(row);
@@ -37,6 +38,7 @@ function parseRow(row, columns) {
   for (let column = 0; column < columns.length; column++) {
     let name = columns[column];
     let value = row[column];
+    if (!value) return null;
     if (name === "iMDB Link") {
       let paths = new URL(value).pathname.split("/");
       out.imdb = paths[paths.length - 1];
